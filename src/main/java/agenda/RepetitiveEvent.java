@@ -27,7 +27,7 @@ public class RepetitiveEvent extends Event {
 
     public RepetitiveEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency) {
         super(title, start, duration);
-        this.frequency = frenquency;
+        this.frequency = frequency;
     }
 
     /**
@@ -36,7 +36,11 @@ public class RepetitiveEvent extends Event {
      * @param date the event will not occur at this date
      */
     public void addException(LocalDate date) {
-        datesException.add(date);
+        exceptionsDates.add(date);
+    }
+
+    public ArrayList<LocalDate> getExceptionsDates() {
+        return exceptionsDates;
     }
 
     /**
@@ -44,7 +48,7 @@ public class RepetitiveEvent extends Event {
      * @return the type of repetition
      */
     public ChronoUnit getFrequency() {
-        return exceptionsDates;   
+        return frequency;   
     }
 
 }
