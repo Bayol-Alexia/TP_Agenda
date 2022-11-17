@@ -43,10 +43,28 @@ public class RepetitiveEvent extends Event {
         return exceptionsDates;
     }
 
+
+
+    public boolean isInDay(LocalDate aDay){
+        //initialisation de dateSup à la date de début de l'évènement
+        LocalDate dateSup = getStart().toLocalDate();
+        //vérification que le jour choisi se trouve après le jour de début
+        if (aDay.isAfter(dateSup) || aDay.equals(dateSup)){
+            while (aDay.isAfter(dateSup) || aDay.equals(dateSup)){
+                if (dateSup.equals(aDay) && (!exceptionsDates.contains(aDay))){
+                    return true;
+                }
+                dateSup=dateSup.plus(1, frequency);  
+            }
+        }
+        return false;
+    }
+
     /**
      *
      * @return the type of repetition
      */
+
     public ChronoUnit getFrequency() {
         return frequency;   
     }
