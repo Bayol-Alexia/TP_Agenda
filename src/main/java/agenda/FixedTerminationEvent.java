@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
  */
 public class FixedTerminationEvent extends RepetitiveEvent {
     private LocalDate terminationInclusive;
-    long numberOfOccurrences;
+    long numberOfOccurrences = -1;
 
     /**
      * Constructs a fixed terminationInclusive event ending at a given date
